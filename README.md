@@ -1,11 +1,11 @@
 # nf-iot-end
 
-Requirements :
+### Requirements :
 
 - node v4.x
 - A raspberry pi (B, B+)
 
-Run :
+### Run :
 
 - Clone to raspberry pi side
 - ``npm install``
@@ -13,7 +13,11 @@ Run :
 
 The hostname and port above is a ``nf-iot-middleware`` instance's
 
-See also :
+### License
+
+MIT
+
+### See also :
 
 - https://github.com/herpiko/nf-iot-middleware
 - https://github.com/herpiko/nf-iot-ng
