@@ -1,5 +1,5 @@
 var clientio = require("socket.io-client");
-var client = clientio.connect("http://localhost:1234");
+var client = clientio.connect(process.env.HOST + ":" + process.env.PORT);
 var Gpio = require("onoff").Gpio;
 
 var slot = {}
