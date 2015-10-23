@@ -14,6 +14,7 @@ setTimeout(function(){slot.led1.writeSync(0);}, 300);
 
 client.on("whoareu", function(){
   client.emit("join-end");
+  console.log("Connected to " + process.env.HOST + ":" + process.env.PORT);
 })
 
 client.on("command", function(data){
@@ -38,8 +39,8 @@ var sensor = {
   },
   read: function () {
     var readout = sensorLib.read();
-    console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
-        'humidity: ' + readout.humidity.toFixed(2) + '%');
+    /* console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' + */
+    /*     'humidity: ' + readout.humidity.toFixed(2) + '%'); */
 	  client.emit("dht11", { temp : readout.temperature.toFixed(2), humid : readout.humidity.toFixed(2)});
     setTimeout(function () {
       sensor.read();
