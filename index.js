@@ -8,7 +8,6 @@ var Gpio = require("onoff").Gpio;
 
 var slot = {}
 slot.led1 = new Gpio(14, "out");
-
 // Let it bip once
 slot.led1.writeSync(1);
 setTimeout(function(){slot.led1.writeSync(0);}, 300);
@@ -30,6 +29,29 @@ client.on("message", function(data){
 setTimeout(function(){
   client.emit("switch1", 1);
 }, 5000)
+
+// DHT11 v2, emit to middleware in 500ms interval
+var sensorLib = require('node-dht-sensor');
+var sensor = {
+  initialize: function () {
+    return sensorLib.initialize(11, 4);
+  },
+  read: function () {
+    var readout = sensorLib.read();
+    console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +
+        'humidity: ' + readout.humidity.toFixed(2) + '%');
+	  client.emit("dht11", { temp : readout.temperature.toFixed(2), humid : readout.humidity.toFixed(2)});
+    setTimeout(function () {
+      sensor.read();
+    }, 500);
+  }
+};
+
+if (sensor.initialize()) {
+    sensor.read();
+} else {
+    console.warn('Failed to initialize sensor');
+}
 
 
 var exit = function(){
