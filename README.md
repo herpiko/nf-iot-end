@@ -19,6 +19,8 @@
 
 ### Schematic
 
+<img src="https://raw.githubusercontent.com/herpiko/nf-iot-end/master/schematic.png">
+
 ### License
 
 MIT
