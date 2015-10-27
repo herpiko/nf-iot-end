@@ -11,8 +11,7 @@
 <pre>
                <--socket.io--                        <---rest API---
 nf-iot-end                       nf-iot-middleware                     nf-iot-ng
-               -----COAP---->                        ---socket.io-->
-
+               ---socket.io-->                       ---socket.io-->
 </pre>
 
 ### Requirements
