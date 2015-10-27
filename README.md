@@ -2,16 +2,20 @@
 
 ### Requirements :
 
-- node v4.x
 - A raspberry pi (B, B+)
+- node v4.x
+- ``root`` user in Rasbian.
+
+### Prepare
+
+- Run a ``nf-iot-middleware`` instance on somewhere. For example, it runs on ``10.0.0.1`` (hostname) and port ``2999``.
+- Download ``bcm2835`` source code from http://www.airspayce.com/mikem/bcm2835/. ``./configure``, ``make`` then ``make install``.
+- Clone to raspberry pi side
+- ``npm install``
 
 ### Run :
 
-- Clone to raspberry pi side
-- ``npm install``
-- ``HOST=hostname PORT=port node index.js``
-
-The hostname and port above is a ``nf-iot-middleware`` instance's
+- ``HOST=10.0.0.1 PORT=2999 node index.js``
 
 ### License
 
@@ -21,3 +25,5 @@ MIT
 
 - https://github.com/herpiko/nf-iot-middleware
 - https://github.com/herpiko/nf-iot-ng
+
+
