@@ -1,10 +1,26 @@
 # nf-iot-end
 
-### Requirements :
+### What is this?
+
+``nf-iot-end`` is part of nf-iot framework which consist of :
+
+- ``nf-iot-end``, running on a raspberry pi device
+- ``nf-iot-middleware``, running on a virtual private server
+- ``nf-iot-ng``, running on browser or as hybrid mobile app.
+
+<pre>
+               <--socket.io--                        <---rest API---
+nf-iot-end                       nf-iot-middleware                     nf-iot-ng
+               -----COAP---->                        ---socket.io-->
+
+</pre>
+
+### Requirements
 
 - A raspberry pi (B, B+)
 - node v4.x
 - ``root`` user in Rasbian.
+- DHT11 Sensor, two resistor and a LED (optional)
 
 ### Prepare
 
@@ -17,7 +33,9 @@
 
 - ``HOST=10.0.0.1 PORT=2999 node index.js``
 
-### Schematic
+### Basic Schematic
+
+``nf-iot-end`` provide basic code example in ``index.js`` that follow the schematic bellow.
 
 <img src="https://raw.githubusercontent.com/herpiko/nf-iot-end/master/schematic.png">
 
@@ -25,7 +43,7 @@
 
 MIT
 
-### See also :
+### See also
 
 - https://github.com/herpiko/nf-iot-middleware
 - https://github.com/herpiko/nf-iot-ng
